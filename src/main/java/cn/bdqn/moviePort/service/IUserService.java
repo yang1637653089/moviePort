@@ -12,4 +12,5 @@ public interface IUserService {
     User getUserWithUser(User user);
 
     User getUserWithPhone(String phone);
+    int addUserWithUser(User user);
 }

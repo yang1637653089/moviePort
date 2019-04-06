@@ -1,9 +1,11 @@
 package cn.bdqn.moviePort.pojo;
 
 import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -23,6 +25,7 @@ public class User implements Serializable {
     @NotNull
     @Length(min = 6,max = 8,message = "密码需要在6~8位")
     private String pwd;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createDate;
 
 

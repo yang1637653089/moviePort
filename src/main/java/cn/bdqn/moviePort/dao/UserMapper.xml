@@ -27,4 +27,8 @@
           user
         where phone=#{phone}
     </select>
+    <insert id="insertUserWithUser" parameterType="user">
+        insert into user(userName,phone,pwd,createDate)
+        values (#{userName},#{phone},#{pwd},default)
+    </insert>
 </mapper>

@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.bdqn.moviePort.dao.MovieMapper">
+    <cache/>
     <resultMap id="movieBaseGenre" type="movie">
         <id property="id" column="mid"/>
         <association property="genre" javaType="genre">

@@ -6,7 +6,6 @@ import cn.bdqn.moviePort.pojo.Result;
 import cn.bdqn.moviePort.service.IAdminService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +30,7 @@ public class AdminController {
         Result result;
         Admin admin = adminService.getAdminByUserAndPwd(user, pwd);
         if(admin==null){
-            result=Result.error(CodeMsg.USER_NOT_EXSIST);
+            result=Result.error(CodeMsg.USER_NOT_EXIST);
         }else {
             session.setAttribute("admin",admin);
             result=Result.success(admin);

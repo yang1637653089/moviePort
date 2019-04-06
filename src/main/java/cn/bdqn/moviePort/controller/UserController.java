@@ -34,7 +34,7 @@ public class UserController {
     @PostMapping("/login")
     @ResponseBody
     public String login(User user, HttpSession session){
-        Result result=null;
+        Result result;
         user= userService.getUserWithUser(user);
         session.setAttribute("user",user);
         if(user==null)result=Result.error(CodeMsg.NOT_FIND_DATA);
@@ -55,14 +55,14 @@ public class UserController {
             session.removeAttribute("verifyCode");
             if(user==null) result=Result.error(CodeMsg.NOT_FIND_DATA);
             else result=Result.success(user);
-        }else result=Result.error(CodeMsg.TELERROR);
+        }else result=Result.error(CodeMsg.TEL_ERROR);
         return JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd",
                 SerializerFeature.WriteNullStringAsEmpty,SerializerFeature.WriteMapNullValue);
     }
     @PostMapping("/register")
     @ResponseBody
     public String register(@Valid User user, BindingResult bindingResult,String verifyCode,HttpSession session){
-        Result result=null;
+        Result result;
         if(bindingResult.hasErrors()){
             List<FieldError> errors = bindingResult.getFieldErrors();
             Map<String,Object> errorMap=new HashMap<>();
@@ -72,11 +72,13 @@ public class UserController {
             result=Result.errors(new CodeMsg(500106,errorMap));
         }else {
             if(user.getPhone().equals(session.getAttribute("tel")) && verifyCode.equals(session.getAttribute("verifyCode"))){
-                //service执行
+                int row = userService.addUserWithUser(user);
                 session.removeAttribute("tel");
                 session.removeAttribute("verifyCode");
                 //判断执行结果
-            }else result=Result.error(CodeMsg.TELERROR);
+                if(row==1)result=Result.error(CodeMsg.SUCCESS);
+                else result=Result.error(CodeMsg.REGISTER_ERROR);
+            }else result=Result.error(CodeMsg.TEL_ERROR);
         }
         return JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd",
                 SerializerFeature.WriteNullStringAsEmpty,SerializerFeature.WriteMapNullValue);

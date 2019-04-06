@@ -10,13 +10,12 @@ public class CodeMsg {
     public static CodeMsg SUCCESS= new CodeMsg(0,"success");
     public static CodeMsg SERVER_EXCEPTION = new CodeMsg(500100,"服务端异常");
     public static CodeMsg PARAMETER_ISNULL = new CodeMsg(500101,"输入参数为空");
-    public static CodeMsg USER_NOT_EXSIST = new CodeMsg(500102,"用户不存在");
-    public static CodeMsg ONLINE_USER_OVER = new CodeMsg(500103,"在线用户数超出允许登录的最大用户限制。");
+    public static CodeMsg USER_NOT_EXIST = new CodeMsg(500102,"用户不存在");
     public static CodeMsg SESSION_NOT_EXSIST =  new CodeMsg(500104,"不存在离线session数据");
     public static CodeMsg NOT_FIND_DATA = new CodeMsg(500105,"查找不到对应数据");
     public static CodeMsg ERROE = new CodeMsg(500107,"结果集封装错误");
-    public static CodeMsg TELERROR = new CodeMsg(500108,"手机号或者验证码错误");
-    public static CodeMsg TELNOTEXESIS = new CodeMsg(500109,"代码错误或者数据库不存在传入的phone用户");
+    public static CodeMsg TEL_ERROR = new CodeMsg(500108,"手机号或者验证码错误");
+    public static CodeMsg REGISTER_ERROR = new CodeMsg(500109,"注册失败");
 
     private CodeMsg(int code, String message) {
         this.code = code;

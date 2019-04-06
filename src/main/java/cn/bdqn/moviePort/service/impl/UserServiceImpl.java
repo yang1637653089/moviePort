@@ -21,7 +21,11 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User getUserWithPhone(String phone) {
-        if("".equals(phone) || phone==null)return null;
         return userMapper.selectUserWithPhone(phone);
+    }
+
+    @Override
+    public int addUserWithUser(User user) {
+        return userMapper.insertUserWithUser(user);
     }
 }

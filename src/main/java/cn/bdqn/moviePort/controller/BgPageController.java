@@ -39,7 +39,11 @@ public class BgPageController {
     public String doCity(){
         return "bg/city";
     }
-    @RequestMapping(path = "/doAdmin-List")
+    @RequestMapping(path = "/doAdmin-edit")
+    public String doAdminEdit(){
+        return "bg/admin-edit";
+    }
+    @RequestMapping(path = "/doAdmin-list")
     public String doAdminList(){
         return "bg/admin-list";
     }

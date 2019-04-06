@@ -161,10 +161,19 @@
         $.get({
             url:'/movie/bg/admin/getAdminName' ,
             type: 'post',
-            dataType: 'text',
+            dataType: 'json',
             success: function (result) {
-                $(".adminName").text(result);
-                $(parent.document).find('.adminName').text(result);
+                if(result.message==="SUSSES"){
+                    $(".adminName").text(result.data);
+                    $(parent.document).find('.adminName').text(result.data);
+                }else {
+                    $(".adminName").text("获取管理员名称失败");
+                    $(parent.document).find('.adminName').text("获取管理员名称失败");
+                }
+            },
+            error:function () {
+                $(".adminName").text("获取管理员名称失败");
+                $(parent.document).find('.adminName').text("获取管理员名称失败");
             }
         });
     });

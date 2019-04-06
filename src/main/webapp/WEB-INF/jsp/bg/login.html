@@ -53,10 +53,10 @@
                   }
                   $.post({
                       url: "/movie/bg/admin/login",
-                      dataType: 'text',
+                      dataType: 'json',
                       data:$("form").serialize(),
                       success: function (result) {
-                          if(result==="0"){
+                          if(result.message==="SUSSES"){
                               layer.msg("登录成功，欢迎您...",function(){
                                   location.href='/movie/bg/page/doIndex';
                               });

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bdqn.moviePort.dao.UserMapper">
+    <!--1000*60*60*12     12小时-->
+    <!--执行增删改后刷新缓存-->
+    <cache flushInterval="43200000"/>
+    <select id="selectUserWithUser" parameterType="user" resultType="user">
+        select
+          *
+        from
+          user
+        <trim prefix="where" prefixOverrides="and||or">
+            <if test="userName!=null and userName!=''">
+                (userName=#{userName}
+                or phone=#{userName}
+                or email=#{userName})
+            </if>
+            and pwd=#{pwd}
+        </trim>
+    </select>
+    <select id="selectUserWithPhone" parameterType="String" resultType="user">
+        select
+        *
+        from
+          user
+        where phone=#{phone}
+    </select>
+</mapper>

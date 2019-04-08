@@ -26,7 +26,6 @@ import java.util.Map;
 @RequestMapping("/pre/user")
 public class UserController {
     private final IUserService userService;
-    @Autowired
     public UserController(IUserService userService) {
         this.userService = userService;
     }

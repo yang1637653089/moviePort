@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 public class MovieServiceImpl implements IMovieService {
     private final MovieMapper movieMapper;
-    @Autowired
     public MovieServiceImpl(MovieMapper movieMapper) {
         this.movieMapper = movieMapper;
     }

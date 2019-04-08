@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements IUserService {
     private final UserMapper userMapper;
-    @Autowired
     public UserServiceImpl(UserMapper userMapper) {
         this.userMapper = userMapper;
     }

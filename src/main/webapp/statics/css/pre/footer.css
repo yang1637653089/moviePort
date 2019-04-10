@@ -1,0 +1,39 @@
+.footer{
+   /* border: solid red 1px;*/
+    width:1347px;
+    height:180px;
+    background-color: black;
+
+}
+
+.footer .info p{
+  color: #9e9e9e82;
+     /*color: red;*/
+  font-size: 12px;
+  text-align: center;
+}
+.footer .list{
+
+     width:1200px;
+     height:50px;
+     margin-left:50px ;
+ }
+.list ul{
+	margin-top: 30px;
+	margin-left: 470px;
+	text-indent: 2em;
+}
+.footer .list li{
+	list-style: none;
+    float: left;
+    margin-top: 30px;
+
+}
+.footer .list li {
+	text-decoration: none;
+    color:#9e9e9e82 ;
+}
+.footer .list li a:hover{
+  
+   color: greenyellow;
+}

@@ -8,8 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AdminServiceImpl implements IAdminService {
-    private AdminMapper adminMapper;
-
+    private final AdminMapper adminMapper;
     public AdminServiceImpl(AdminMapper adminMapper) {
         this.adminMapper = adminMapper;
     }

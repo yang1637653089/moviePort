@@ -1,0 +1,90 @@
+header{
+
+    position: relative;
+    width: 1230px;
+    height: auto;
+    margin: 5px auto 30px;
+}
+.content {
+
+    width: 1230px;
+    height:387px;
+    margin-left: 60px;
+    margin-top: -10px;
+    font-size: 14px;
+
+}
+.J-unitive-signup-form{
+
+    width: 1000px;
+    height:387px;
+    margin: auto;
+}
+.sheet{
+    margin-top: 20px;
+    margin-left:70px;
+}
+.form-field {
+    width: 800px;
+    height:28px;
+    margin: auto 12px;
+    position: relative;
+    padding: 8px 0 8px 110px;
+    zoom: 1;
+
+}
+input{
+
+    outline: none;
+    width: 228px;
+    height: 26px;
+    /*margin-left: 37px;
+    margin-top: 2px;*/
+}
+.form-field--sms label{
+   margin-left: -29px;
+}
+.form-field--pwd label{
+    margin-left: -16px;
+}
+.pw-strength{
+
+    position: absolute;
+    width: 228px;
+    top: 12px;
+    left:400px;
+    background: #bdbdbd
+}
+.pw-strength__label{
+
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    width: 74px;
+    border-right: 2px solid #fff;
+    color: #fff;
+}
+.form-field--pwd2 label{
+    margin-left: -16px;
+}
+.btn{
+    background-color:#d64839 ;
+    border: none;
+    outline: none;
+    width: 170px;
+    height: 30px;
+    margin-left: 50px;
+    margin-top: 2px;
+    color: white;
+}
+p a{
+    text-decoration: none;
+    color:#d64839  ;
+    margin-left: 30px;
+}
+p a:hover{
+    text-decoration: underline;
+}

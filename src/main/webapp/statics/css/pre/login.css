@@ -1,0 +1,164 @@
+header{
+    position: relative;
+    width: 1230px;
+    height: auto;
+    margin: 5px auto 30px;
+}
+header a{
+    margin-left: 30px;
+}
+.site-body-wrapper{
+    width: 1349px;
+    height: 370px;
+    margin-top: -30px;
+}
+.site-body {
+
+    margin: 0 auto 70px;
+    width: 980px;
+    height:370px;
+}
+.cf {
+    zoom: 1;
+}
+.promotion-banner {
+
+    float: left;
+    height: 370px;
+    margin: 0 115px 0 0;
+    width: 480px;
+}
+.login-section {
+
+    width: 270px;
+    height: 282px;
+    background: #FFF;
+    float: left;
+    padding-top: 0;
+}
+.login-section .form--stack {
+
+    width: 270px;
+    height: 272px;
+}
+.form--stack {
+    width: 260px;
+}
+.form {
+    margin: 0 0 10px;
+    position: relative;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+.login-section .validate-info {
+
+    width: 270px;
+    height:35px ;
+    min-height: 18px;
+    margin-top: 0;
+}
+
+.form--stack .validate-info {
+    margin-bottom: 10px;
+
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+.login-section .login-type {
+    font-weight: 400;
+    font-size: 14px;
+    color: #666;
+}
+.login-section .login-type a{
+    margin-left: 105px;
+    text-decoration: none;
+    color: black;
+}
+.login-section .login-type a:hover{
+    color:#d64839;
+    text-decoration: underline;
+}
+#normal-link{
+    margin-left: 120px;
+}
+.form-field{
+    border:solid rgba(147, 147, 147, 0.88) 1px ;
+    width: 270px;
+    height:36px ;
+    margin-top: 14px;
+}
+.icon-user{
+    position: absolute;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    top: 87px;
+    left: 9px;
+    line-height: 18px;
+    vertical-align: text-top;
+}
+.icon-password{
+    position: absolute;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    top: 140px;
+    left: 9px;
+    line-height: 18px;
+    vertical-align: text-top;
+}
+input{
+    border: none;
+    outline: none;
+    width: 228px;
+    height: 30px;
+    margin-left: 37px;
+    margin-top: 2px;
+}
+.form-field-login{
+    background-color:#d64839 ;
+    width: 270px;
+    height:36px ;
+    margin-top: 14px;
+}
+.form-field-login input{
+    background-color:#d64839 ;
+    border: none;
+    outline: none;
+    width: 228px;
+    height: 30px;
+    margin-left: 23px;
+    margin-top: 2px;
+    color: white;
+}
+.form-field-do{
+
+    width: 100px;
+    height: 30px;
+    margin-left: 165px;
+    margin-top: -33px;
+}
+#login-dopassword{
+    width: 70px;
+    height: 30px;
+}
+.form-field-do input{
+    border: none;
+    outline: none;
+    width: 100px;
+    height: 30px;
+    margin-left: 2px;
+    margin-top: 1px;
+    background-color: white;
+    font-size: 10px;
+    color: rgba(147, 147, 147, 0.88);
+}
+p {
+    display: inline-block;
+    font-size: 14px;
+}
+

@@ -1,0 +1,200 @@
+.nav{
+    /*border: solid red 1px;*/
+    /*
+    margin-left: 10px;*/
+    /*width:1330px;*/
+    height:82px;
+    background-color: black;
+    border-bottom: 1px solid #edeef0;
+
+}
+.logo{
+    margin-top: 20px;
+    width: 230px;
+    height: 80px;
+}
+
+.list .title {
+    position: absolute;
+    top:-1px;
+    margin-left: 180px;
+}
+.list .title li {
+    list-style: none;
+    float: left;
+    /* text-indent:4.78em;*/
+    font-size:18px;
+    text-decoration: none;
+    padding:0 16px;
+    height: 82px;
+    line-height: 82px;
+    display: inline-block;
+    margin-left: 30px;
+    position: relative;
+    top:-35px;
+}
+.list .title li a{
+    color:white;
+    text-decoration: none;
+}
+.list  li a:hover{
+    color:greenyellow;
+    background-color: #eee;
+}
+.p-order-list{
+    border: solid red 1px;
+    width: 980px;
+    height: 700px;
+    margin: 0 auto ;
+}
+.w-user-info{
+    border: solid red 1px;
+    width:980px;
+    height:50px;
+    background-color: #eee;
+}
+.user-name-wrap{
+    border: solid red 1px;
+    width:260px;
+    height:50px;
+    line-height: 50px;
+    font-size: 15px;
+    padding:0 25px ;
+}
+.uc-wrap{
+    border: solid red 1px;
+    width: 980px;
+    height: 600px;
+    margin-top: 20px;
+}
+.uc-side{
+    border: solid red 1px;
+    width: 150px;
+    font-size: 15px;
+    float: left;
+}
+
+.nav-txt{
+    padding: 13px 0px 13px 32px;
+    font-size: 14px;
+    line-height: 35px;
+}
+.sub-nav-active{
+    display: block;
+    padding: 0px 0px 0px 26px;
+    width: 120px;
+    /*background-color: greenyellow;*/
+}
+.sub-nav li a {
+    display: block;
+    line-height: 28px;
+    padding-left: 30px;
+    font-size: 12px;
+}
+.sub-nav li a:hover{
+    background-color: greenyellow;
+}
+.w-phone-info{
+    border: solid red 1px;
+    width:150px;
+    height: 100px;
+    margin-top: 20px;
+}
+
+.w-phone-info p{
+    text-align: center;
+    font-size: 12px;
+}
+.uc-main{
+    border: solid red 1px;
+    width: 820px;
+    margin-left: 150px;
+}
+.status-wrap-movie {
+    border: solid red 1px;
+    width: 820px;
+    height: 50px;
+}
+.status-wrap-movie ul{
+    margin-left:50px;
+}
+.status-wrap-movie  ul li{
+    float: left;
+    font-size: 16px;
+   line-height: 50px;
+   padding-left: 30px;
+}
+
+
+.status-wrap-order {
+    border: solid red 1px;
+    width: 820px;
+    height: 50px;
+}
+.status-wrap-order ul{
+    margin-left:50px;
+}
+.status-wrap-order  ul li{
+    float: left;
+    font-size: 16px;
+    line-height: 50px;
+    padding-left: 30px;
+}
+
+.status-wrap-comment {
+    border: solid red 1px;
+    width: 820px;
+    height: 50px;
+}
+.status-wrap-comment ul{
+    margin-left:50px;
+}
+.status-wrap-comment  ul li{
+    float: left;
+    font-size: 16px;
+    line-height: 50px;
+    padding-left: 30px;
+}
+.status-wrap-user {
+    border: solid red 1px;
+    width: 820px;
+    height: 50px;
+}
+.status-wrap-user ul{
+    margin-left:50px;
+}
+.status-wrap-user  ul li{
+    float: left;
+    font-size: 16px;
+    line-height: 50px;
+    padding-left: 30px;
+}
+.user-info{
+    border: 1px solid red;
+    height: 300px;
+    width: 820px;
+}
+.user-info label{
+    margin-left: 50px;
+    font-size: 16px;
+    display: block;
+    margin-top: 10px;
+}
+
+.status-wrap-discount {
+    border: solid red 1px;
+    width: 820px;
+    height: 50px;
+}
+.status-wrap-discount ul{
+    margin-left:50px;
+}
+.status-wrap-discount  ul li{
+    float: left;
+    font-size: 16px;
+    line-height: 50px;
+    padding-left: 30px;
+}
+.status {
+    display: block;
+}

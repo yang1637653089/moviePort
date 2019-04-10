@@ -1,0 +1,99 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录|电影港</title>
+    <link rel="stylesheet" href="/movie/statics/css/pre/login.css">
+</head>
+<body>
+<header>
+    <a href="index.html"><img src="/movie/statics/images/logo.png" alt="" width="280"  height="90"></a>
+    <hr color="#d64839"/>
+</header>
+<div class="site-body-wrapper">
+    <div class="site-body cf">
+        <div class="promotion-banner">
+            <img src="/movie/statics/images/登录装饰.jpg" alt="" width="480"  height="370">
+        </div>
+        <div class="login-section">
+            <form action="" method="post" class="form form--stack" style="display:block;" id="J-normal-form">
+                <div class="validate-info" style="/*visibility: hidden*/">
+                    <i class="tip-status tip-status--opinfo"></i>
+                </div>
+                <span class="login-type">
+                     账号登录
+                    <a href="#" id="mobile-link">手机短信登录 </a><img src="/movie/statics/images/手机%20(1).png" alt="" width="15" height="13">
+
+                </span>
+                <div class="form-field user">
+                    <i class="icon icon-user"><img src="/movie/statics/images/用户.png" alt="" width="25px" height="25" ></i>
+                    <label><input type="text" id="login-email" class="f-text" name="username" placeholder="手机号/用户名/邮箱"></label>
+                </div>
+                <div class="form-field ">
+                    <i class="icon icon-password"><img src="/movie/statics/images/密码.png" alt="" width="25px" height="25" ></i>
+                    <label><input type="password" id="login-password" class="f-text" name="password" placeholder="密码"/></label>
+                </div>
+                <div class="form-field--auto-login ">
+                    <a href="#" style="margin-left: 198px;margin-top:10px;font-size:14px;color: #d64839;text-decoration: none">忘记密码？</a>
+                </div>
+                <div class="form-field-login">
+                    <input type="submit"  class="btn" name="commit" value="登录"/>
+                </div>
+                <p class="signup-guide">还没有账号？<a href="/movie/pre/page/doRegister" style="color:#d64839;text-decoration: none; ">免费注册</a></p>
+            </form>
+            <form action="" method="post" class="form form--stack J-wwwtracker-form" style="display:none; " id="J-mobile-form">
+                <div class="validate-info" style="/*visibility: hidden*/">
+                    <i class="tip-status tip-status--opinfo"></i>
+                </div>
+                <span class="login-type">
+                     账号登录
+                    <a href="#" id="normal-link">普通方式登录 </a>
+                </span>
+                <div class="form-field ">
+                    <i class="icon icon-user"><img src="/movie/statics/images/手机%20(1).png" alt="" width="25px" height="25" ></i>
+                    <label><input type="text" id="login-mobile" class="f-text" name="email" placeholder="手机号"></label>
+                </div>
+                <div class="form-field ">
+                    <i class="icon icon-password"><img src="/movie/statics/images/密码.png" alt="" width="25px" height="25" ></i>
+                    <label><input type="password" id="login-dopassword" class="f-text" name="password" placeholder="动态码" style="weight:70px;height: 30px"/></label>
+                    <div class="form-field-do">
+                        <input type="button"  class="btn-normal btn-mini" value="获取手机动态码"/>
+                    </div>
+                </div>
+                <div class="form-field--auto-login ">
+                    <a href="#" style="margin-left: 198px;margin-top:10px;font-size:14px;color: #d64839;text-decoration: none">忘记密码？</a>
+                </div>
+                <div class="form-field-login">
+                    <input type="submit"  class="btn" name="commit" value="登录"/>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<footer>
+
+</footer>
+<script src="/movie/statics/js/pre/jquery-1.12.4.js"></script>
+<script>
+    $(function() {
+        $("#mobile-link").click(function () {
+            $("#J-normal-form").hide();
+            $("#J-mobile-form").show();
+        });
+        $("#normal-link").click(function () {
+            $("#J-normal-form").show();
+            $("#J-mobile-form").hide();
+        });
+        $(".form-field>label>input").focus(function () {
+            $(this).parent().parent().css("border","1px solid red");
+        });
+        $(".form-field>label>input").blur(function () {
+            $(this).parent().parent().css("border","");
+        });
+    })
+</script>
+</body>
+
+</html>

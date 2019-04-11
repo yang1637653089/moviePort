@@ -15,17 +15,9 @@ public class BgPageController {
     public String doIndex(){
         return "bg/index";
     }
-    @RequestMapping(path = "/doMember-list")
-    public String doMemberlist(){
-        return "bg/member-list";
-    }
-    @RequestMapping(path = "/doMember-list1")
-    public String doMemberlist1(){
-        return "bg/member-list1";
-    }
-    @RequestMapping(path = "/doMember-del")
-    public String doMemberDel(){
-        return "bg/member-del";
+    @RequestMapping(path = "/doUserList")
+    public String doUserList(){
+        return "bg/userList";
     }
     @RequestMapping(path = "/doOrder-list")
     public String doOrderList(){
@@ -70,5 +62,22 @@ public class BgPageController {
     @RequestMapping(path = "/doWelcome")
     public String doWelcome(){
         return "bg/welcome";
+    }
+
+
+    @RequestMapping(path = "/doMemberEdit")
+    public String doMemberEdit(){
+        return "bg/member-edit";
+    }
+
+    @RequestMapping(path = "/doUserAdd")
+    public String doUserAdd(){
+        return "bg/userAdd";
+    }
+
+
+    @RequestMapping(path = "/doMemberPassword")
+    public String doMemberPassword(){
+        return "bg/member-password";
     }
 }

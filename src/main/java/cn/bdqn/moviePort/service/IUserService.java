@@ -2,6 +2,7 @@ package cn.bdqn.moviePort.service;
 
 
 import cn.bdqn.moviePort.pojo.User;
+import com.github.pagehelper.PageInfo;
 
 public interface IUserService {
     /**
@@ -13,4 +14,7 @@ public interface IUserService {
 
     User getUserWithPhone(String phone);
     int addUserWithUser(User user);
+
+    PageInfo<User> getAllUser(int page, int limit);
+    int getCount();
 }

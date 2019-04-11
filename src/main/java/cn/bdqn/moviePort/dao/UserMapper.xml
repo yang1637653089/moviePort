@@ -6,11 +6,14 @@
     <!--1000*60*60*12     12小时-->
     <!--执行增删改后刷新缓存-->
     <cache flushInterval="43200000"/>
-    <select id="selectUserWithUser" parameterType="user" resultType="user">
+    <sql id="all">
         select
-          *
+                *
         from
-          user
+             user
+    </sql>
+    <select id="selectUserWithUser" parameterType="user" resultType="user">
+        <include refid="all"/>
         <trim prefix="where" prefixOverrides="and||or">
             <if test="userName!=null and userName!=''">
                 (userName=#{userName}
@@ -20,15 +23,33 @@
             and pwd=#{pwd}
         </trim>
     </select>
+
+    <select id="selectAllUser" resultType="user">
+        <include refid="all"/>
+        <if test="begin!=null and end!=null">
+            limit #{begin},#{end}
+        </if>
+    </select>
+
+    <select id="selectCount" resultType="int">
+        select count(1) from user;
+    </select>
+
     <select id="selectUserWithPhone" parameterType="String" resultType="user">
-        select
-        *
-        from
-          user
+        <include refid="all"/>
         where phone=#{phone}
     </select>
+
     <insert id="insertUserWithUser" parameterType="user">
-        insert into user(userName,phone,pwd,createDate)
-        values (#{userName},#{phone},#{pwd},default)
+        <choose>
+            <when test="imgPath==null or imgPath==''">
+                insert into user(userName,phone,pwd,createDate)
+                values (#{userName},#{phone},#{pwd},default)
+            </when>
+            <otherwise>
+                insert into user(userName,phone,pwd,imgPath,createDate)
+                values (#{userName},#{phone},#{pwd},#{imgPath},default)
+            </otherwise>
+        </choose>
     </insert>
 </mapper>

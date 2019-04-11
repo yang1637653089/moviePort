@@ -6,14 +6,11 @@ import cn.bdqn.moviePort.pojo.User;
 import cn.bdqn.moviePort.service.IUserService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -79,6 +76,14 @@ public class UserController {
                 else result=Result.error(CodeMsg.REGISTER_ERROR);
             }else result=Result.error(CodeMsg.TEL_ERROR);
         }
+        return JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd",
+                SerializerFeature.WriteNullStringAsEmpty,SerializerFeature.WriteMapNullValue);
+    }
+    @GetMapping("/userList")
+    @ResponseBody
+    public String userList(int page,int limit){
+        PageInfo<User> users = userService.getAllUser(page, limit);
+        Result result=Result.success(users);
         return JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd",
                 SerializerFeature.WriteNullStringAsEmpty,SerializerFeature.WriteMapNullValue);
     }

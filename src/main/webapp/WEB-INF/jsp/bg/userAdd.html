@@ -23,7 +23,7 @@
 
 <body>
 <div class="x-body">
-    <form class="layui-form">
+    <form class="layui-form" id="add">
         <div class="layui-form-item">
             <label for="L_UserName" class="layui-form-label">
                 <span class="x-red">*</span>会员名
@@ -36,14 +36,6 @@
                 <span class="x-red">*</span>会员名至少得6个字符啊
             </div>
         </div>
-        <!--<div class="layui-upload">
-            <button type="button" class="layui-btn" id="test1">上传图片</button>
-            <div class="layui-upload-list">
-                <img class="layui-upload-img" id="demo1">
-                <p id="demoText"></p>
-            </div>
-        </div>-->
-
         <div class="layui-form-item">
             <label for="L_pwd" class="layui-form-label">
                 <div class="layui-upload" style="padding: 30px">
@@ -53,6 +45,7 @@
             <div class="layui-input-inline">
                 <div class="layui-upload-list">
                     <img class="layui-upload-img" id="demo1" style="width: 8rem;height: 7.5rem;margin-left: 5rem;border: solid #e6d2d2 .1rem;border-radius: 5rem;">
+                    <input type="hidden" id="imgPath" name="imgPath" class="layui-input">
                 </div>
             </div>
         </div>
@@ -77,6 +70,7 @@
                 <input type="text" id="L_Phone" name="phone" required="" lay-verify="phone"
                        autocomplete="off" class="layui-input">
             </div>
+            <i id="sendVerifyCode" class="layui-btn layui-btn-primary layui-btn-sm" style="width: 7rem">发送验证码</i>
         </div>
         <div class="layui-form-item">
             <label for="L_email" class="layui-form-label">
@@ -131,14 +125,30 @@
 
         //监听提交
         form.on('submit(add)', function(data){
-            console.log(data);
-            //发异步，把数据提交给php
-            layer.msg("增加成功", {icon: 6},function () {
-
+            var param=data.field;
+            console.log(data.field);
+            $.post({
+                url: '/movie/pre/user/register',
+                dataType: 'json',
+                data: {
+                    email:param.email,
+                    imgPath:param.imgPath,
+                    phone:param.phone,
+                    pwd:param.pwd,
+                    userName:param.userName,
+                    verifyCode:param.verifyCode
+                },
+                success: function (data) {
+                    if(data.result===0){
+                        layer.msg("添加会员成功...");
+                    }else {
+                        layer.msg(data.errMsg+"...");
+                    }
+                }
             });
+
             return false;
         });
-
     });
 </script>
 <script>
@@ -156,11 +166,55 @@
                 });
             }
             ,done: function(res){
-                console.log(res)
+                $("#imgPath").val(res.data.src);
             }
         });
     });
 </script>
-</body>
+<script>
+    var $sendDOM = $("#sendVerifyCode");
+    var exp = /^1[34578]\d{9}$/;
+    var time=60;
+    $sendDOM.click(function () {
+        if(!exp.test($("#L_Phone").val().trim())){
+            layer.msg("请输入正确的手机号");
+            return;
+        }
+        if($sendDOM.text()!=="发送验证码")return;
+        sendCode();
+    });
 
+    function buttonController() {
+        $sendDOM.addClass("layui-btn-disabled");
+        $sendDOM.removeAttr("disabled", "disabled");
+        var interval = setInterval(function () {
+            if (time >= 0) {
+                $sendDOM.text(time + "S");
+                --time;
+            } else {
+                $sendDOM.text("发送验证码");
+                $sendDOM.removeClass("layui-btn-disabled");
+                $sendDOM.attr("disabled", "disabled");
+                window.clearInterval(interval);
+                time = 60;
+            }
+        }, 1000);
+    }
+
+    function sendCode() {
+        $.post({
+            url: '/movie/means/sendToSMS',
+            dataType: 'json',
+            data: 'tel='+$("#L_Phone").val(),
+            success: function (data) {
+                if(data.result===0){
+                    buttonController();
+                }else {
+                    layer.msg(data.errMsg+"...",{icon: 6});
+                }
+            }
+        });
+    }
+</script>
+</body>
 </html>

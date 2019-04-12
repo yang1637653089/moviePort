@@ -41,7 +41,7 @@
     </select>
 
     <insert id="insertUserWithUser" parameterType="user">
-        <choose>
+        <!--<choose>
             <when test="imgPath==null or imgPath==''">
                 insert into user(userName,phone,pwd,createDate)
                 values (#{userName},#{phone},#{pwd},default)
@@ -50,6 +50,8 @@
                 insert into user(userName,phone,pwd,imgPath,createDate)
                 values (#{userName},#{phone},#{pwd},#{imgPath},default)
             </otherwise>
-        </choose>
+        </choose>-->
+        insert into user(imgPath,userName,phone,email,pwd,createDate)
+        values (#{imgPath},#{userName},#{phone},#{email},#{pwd},default)
     </insert>
 </mapper>

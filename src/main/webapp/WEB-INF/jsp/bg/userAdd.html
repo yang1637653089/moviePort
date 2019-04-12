@@ -145,11 +145,11 @@
     layui.use('upload', function(){
         var $ = layui.jquery
             ,upload = layui.upload;
-        //拖拽上传
         upload.render({
             elem: '#test1'
             ,url: '/movie/upload/userPhoto'
             ,field:'userPhoto'
+            ,size:512
             ,before: function(obj){
                 obj.preview(function(index, file, result){
                     $('#demo1').attr('src', result);

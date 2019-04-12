@@ -16,6 +16,7 @@ public class CodeMsg {
     public static CodeMsg ERROE = new CodeMsg(500107,"结果集封装错误");
     public static CodeMsg TEL_ERROR = new CodeMsg(500108,"手机号或者验证码错误");
     public static CodeMsg REGISTER_ERROR = new CodeMsg(500109,"注册失败");
+    public static CodeMsg FILE_UP_ERROR = new CodeMsg(500110,"文件上传失败");
 
     private CodeMsg(int code, String message) {
         this.code = code;

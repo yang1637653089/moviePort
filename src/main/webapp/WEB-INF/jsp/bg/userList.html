@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html class="x-admin-sm">
-  
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>欢迎页面-X-admin2.1</title>
     <meta name="renderer" content="webkit">
@@ -14,111 +14,151 @@
     <script type="text/javascript" src="/movie/statics/lib/layui/layui.all.js" charset="utf-8"></script>
     <script type="text/javascript" src="/movie/statics/js/bg/xadmin.js"></script>
     <script type="text/javascript" src="/movie/statics/js/bg/cookie.js"></script>
-  </head>
-  
-  <body class="">
-    <div class="x-nav">
+</head>
+
+<body class="">
+<div class="x-nav">
       <span class="layui-breadcrumb">
         <a href="">首页</a>
         <a href="">演示</a>
         <a>
           <cite>导航元素</cite></a>
       </span>
-      <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
         <i class="iconfont" style="line-height:30px">&#xe6aa;</i></a>
-    </div>
-    <div class="x-body">
-      <div class="layui-row">
+</div>
+<div class="x-body">
+    <div class="layui-row">
         <form class="layui-form layui-col-md12 x-so">
-          <input class="layui-input"  autocomplete="off" placeholder="开始日" name="start" id="start">
-          <input class="layui-input"  autocomplete="off" placeholder="截止日" name="end" id="end">
-          <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
-          <button class="layui-btn" lay-submit lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+            <input class="layui-input"  autocomplete="off" placeholder="开始日" name="start" id="start">
+            <input class="layui-input"  autocomplete="off" placeholder="截止日" name="end" id="end">
+            <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
+            <button class="layui-btn" lay-submit lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
         </form>
-      </div>
-
-
-      <div class="table">
-        <table id="userList" class="layui-hide" lay-filter="userFilter"></table>
-      </div>
-
     </div>
-    <script type="text/html" id="userBar">
-      <a title="编辑" lay-event="editUser" class="layui-icon" href="javascript:;">&#xe642;</a>
-      <a title="删除" lay-event="delUser" class="layui-icon" href="javascript:;">&#xe640;</a>
-    </script>
-    <script>
-      layui.use('laydate', function(){
+
+
+    <div class="table">
+        <table id="userList" class="layui-hide" lay-filter="userFilter"></table>
+    </div>
+
+</div>
+<script type="text/html" id="userBar">
+    <a title="编辑" lay-event="editUser" class="layui-icon" href="javascript:;">&#xe642;</a>
+    <a title="删除" lay-event="delUser" class="layui-icon" href="javascript:;">&#xe640;</a>
+</script>
+<script>
+    layui.use('laydate', function(){
         var laydate = layui.laydate;
 
         //执行一个laydate实例
         laydate.render({
-          elem: '#start' //指定元素
+            elem: '#start' //指定元素
         });
         laydate.render({
-          elem: '#end'
+            elem: '#end'
         });
-      });
-    </script>
-  <script>
-      layui.table.render({
-          elem: '#userList'
-          ,url: '/movie/pre/user/userList'
-          ,page:true
-          ,toolbar: 'default'
-          ,parseData: function(res){
-              return {
-                  "code":res.code,
-                  "msg": res.message,
-                  "count": res.data.total,
-                  "data":res.data.list
-              };
-          }
-          ,cols: [[
-              {field:'id',title:'ID', width:80, sort: true}
-              ,{field:'userName',title:'会员名', minWidth: 150}
-              ,{field:'pwd',title:'会员密码', width:80,minWidth: 150}
-              ,{field:'phone',title:'会员手机号码', minWidth: 100}
-              ,{field:'email',title:'会员邮箱'}
-              ,{field:'createDate',title:'会员注册时间', sort: true}
-              ,{field:'imgPath',title:'会员头像', width:120}
-              ,{fixed: 'right',title:'操作', width:150, align:'center', toolbar: '#userBar'}
-          ]]
-      });
-  </script>
-  <script>
-      layui.form.on('submit(sreach)', function(data){
-          layer.msg("您点击了提交按钮....");
-          return false;
-      });
-  </script>
-  <script>
-      /*layui.table.on('tool(userFilter)', function(obj){
-          var data = obj.data
-              ,layEvent = obj.event;
-          if(layEvent === 'ssss'){
-              layer.msg('查看操作');
-          } else if(layEvent === 'delUser'){
-              layer.confirm('真的删除行么', function(index){
-                  obj.del();
-                  layer.close(index);
-              });
-          } else if(layEvent === 'editUser'){
-              layer.msg('编辑操作');
-          }
-      });*/
-      layui.table.on('tool(userFilter)', function(obj){
-          console.log(obj.tr[0]);
-          switch(obj.event){
-              case 'editUser':
-                  x_admin_show('编辑','/movie/bg/page/doMemberEdit',600,400)
-                  break;
-              case 'delUser':
-                  obj.del();
-                  break;
-          }
-      });
-  </script>
-  </body>
+    });
+</script>
+<script>
+    layui.table.render({
+        elem: '#userList'
+        ,url: '/movie/pre/user/list'
+        ,page:true
+        ,toolbar: 'default'
+        ,parseData: function(res){
+            return {
+                "code":res.code,
+                "msg": res.message,
+                "count": res.data.total,
+                "data":res.data.list
+            };
+        }
+        ,cols: [[
+            {field:'id',title:'ID', width:80, sort: true}
+            ,{field:'userName',title:'会员名', minWidth: 150}
+            ,{field:'pwd',title:'会员密码', width:80,minWidth: 150}
+            ,{field:'phone',title:'会员手机号码', minWidth: 100}
+            ,{field:'email',title:'会员邮箱'}
+            ,{field:'createDate',title:'会员注册时间', sort: true}
+            ,{field:'imgPath',title:'会员头像', width:120}
+            ,{fixed: 'right',title:'操作', width:150, align:'center', toolbar: '#userBar'}
+        ]]
+    });
+</script>
+<script>
+    layui.form.on('submit(sreach)', function(data){
+        layer.msg("您点击了提交按钮....");
+        return false;
+    });
+</script>
+<script>
+    layui.table.on('tool(userFilter)', function(obj){
+        var id = obj.data.id;
+        switch(obj.event){
+            case 'editUser':
+                editUser('编辑','/movie/bg/page/doMemberEdit',550,400,obj.data);
+                break;
+            case 'delUser':
+                $.post({
+                    url: '/movie/pre/user/del',
+                    dataType: 'json',
+                    data: {id:id},
+                    success: function (data) {
+                        console.log(data);
+                        if(data.code==0){
+                            if(data.data>0){
+                                layer.msg("删除会员成功...");
+                                obj.del();
+                            }
+                        }else {
+                            layer.msg(data.errMsg+"...");
+                        }
+                    }
+                });
+                break;
+        }
+    });
+</script>
+<script>
+    function editUser(title,url,w,h,data) {
+        layer.open({
+            type: 2,
+            area: [w+'px', h +'px'],
+            fix: false, //不固定
+            maxmin: true,
+            shadeClose: true,
+            shade:0.4,
+            title: title,
+            content: url,
+            success: function (layero, index){
+                var id =data.id;
+                var userName =data.userName;
+                var pwd =data.pwd;
+                var phone =data.phone;
+                var email =data.email;
+                var createDate =data.createDate;
+                var body = layer.getChildFrame('body', index);
+                body.find("#L_Id").val(id);
+                body.find("#L_UserName").val(userName);
+                body.find("#L_pwd").val(pwd);
+                body.find("#L_Phone").val(phone);
+                body.find("#L_email").val(email);
+                body.find("#L_createDate").val(createDate);
+                //窗口加载成功刷新frame
+                // location.replace(location.href);
+            },
+            cancel:function(){
+                //关闭窗口之后刷新frame
+                //location.replace(location.href);
+            },
+            end:function(){
+                //窗口销毁之后刷新frame
+                location.replace(location.href);
+            }
+        });
+    }
+</script>
+</body>
 
 </html>

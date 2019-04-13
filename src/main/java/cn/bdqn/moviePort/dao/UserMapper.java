@@ -11,4 +11,7 @@ public interface UserMapper {
     int insertUserWithUser(User user);
     List<User> selectAllUser(@Param("begin") int begin,@Param("end") int end);
     int selectCount();
+    int deleteUserById(int id);
+
+    int updateUserWithObject(User user);
 }

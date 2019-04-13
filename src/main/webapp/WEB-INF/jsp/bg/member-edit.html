@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html class="x-admin-sm">
-  
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>欢迎页面-X-admin2.1</title>
     <meta name="renderer" content="webkit">
@@ -16,102 +16,138 @@
     <script type="text/javascript" src="/movie/statics/js/bg/cookie.js"></script>
     <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
     <!--[if lt IE 9]>
-      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  
-  <body>
-    <div class="x-body">
-        <form class="layui-form">
-          <div class="layui-form-item">
-              <label for="L_email" class="layui-form-label">
-                  <span class="x-red">*</span>邮箱
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="email" required="" lay-verify="email"
-                  autocomplete="off" class="layui-input">
-              </div>
-              <div class="layui-form-mid layui-word-aux">
-                  <span class="x-red">*</span>将会成为您唯一的登入名
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="L_username" class="layui-form-label">
-                  <span class="x-red">*</span>昵称
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text" id="L_username" name="username" required="" lay-verify="nikename"
-                  autocomplete="off" class="layui-input">
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="L_pass" class="layui-form-label">
-                  <span class="x-red">*</span>密码
-              </label>
-              <div class="layui-input-inline">
-                  <input type="password" id="L_pass" name="pass" required="" lay-verify="pass"
-                  autocomplete="off" class="layui-input">
-              </div>
-              <div class="layui-form-mid layui-word-aux">
-                  6到16个字符
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="L_repass" class="layui-form-label">
-                  <span class="x-red">*</span>确认密码
-              </label>
-              <div class="layui-input-inline">
-                  <input type="password" id="L_repass" name="repass" required="" lay-verify="repass"
-                  autocomplete="off" class="layui-input">
-              </div>
-          </div>
-          <div class="layui-form-item">
-              <label for="L_repass" class="layui-form-label">
-              </label>
-              <button  class="layui-btn" lay-filter="add" lay-submit="">
-                  保存
-              </button>
-          </div>
-      </form>
-    </div>
-    <script>
-      layui.use(['form','layer'], function(){
-          $ = layui.jquery;
+</head>
+
+<body>
+<div class="x-body">
+    <form class="layui-form" id="add">
+        <div class="layui-form-item">
+            <label for="L_UserName" class="layui-form-label">
+                <span class="x-red">*</span>会员名
+            </label>
+            <div class="layui-input-inline">
+                <input type="hidden" id="L_Id" name="id">
+                <input type="text" id="L_UserName" name="userName" required="" lay-verify="userName"
+                       autocomplete="off" class="layui-input layui-disabled">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                <span class="x-red">*</span>会员名不可更改
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="L_pwd" class="layui-form-label">
+                <span class="x-red">*</span>会员登录密码
+            </label>
+            <div class="layui-input-inline">
+                <input type="pwd" id="L_pwd" name="pwd" required="" lay-verify="pwd"
+                       autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                <span class="x-red">*</span>6到8个字符
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="L_Phone" class="layui-form-label">
+                <span class="x-red">*</span>会员手机号
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_Phone" name="phone" required="" lay-verify="phone"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="L_email" class="layui-form-label">
+                <span class="x-red">*</span>会员邮箱
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_email" name="email" required="" lay-verify="email"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="L_createDate" class="layui-form-label">
+                <span class="x-red">*</span>会员注册时间
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_createDate" name="createDate"
+                       autocomplete="off" class="layui-input layui-disabled">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                <span class="x-red">*</span>会员注册时间不可更改
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+            </label>
+            <button  class="layui-btn" lay-filter="change" lay-submit="">
+                保存
+            </button>
+        </div>
+    </form>
+</div>
+<script>
+    layui.use(['form','layer'], function(){
+        $ = layui.jquery;
         var form = layui.form
-        ,layer = layui.layer;
-      
+            ,layer = layui.layer;
+
         //自定义验证规则
         form.verify({
-          nikename: function(value){
-            if(value.length < 5){
-              return '昵称至少得5个字符啊';
+            userName: function(value){
+                if(value.length < 6){
+                    return '会员名至少得6个字符哦';
+                }
             }
-          }
-          ,pass: [/(.+){6,12}$/, '密码必须6到12位']
-          ,repass: function(value){
-              if($('#L_pass').val()!=$('#L_repass').val()){
-                  return '两次密码不一致';
-              }
-          }
+            ,pwd: [/(.+){6,8}$/, '密码必须6到8位']
+            ,verifyCode:function (value) {
+                if(value.length !== 4){
+                    return '验证码为4位纯数字哦';
+                }
+            }
         });
 
         //监听提交
-        form.on('submit(add)', function(data){
-          console.log(data);
-          //发异步，把数据提交给php
-          layer.alert("增加成功", {icon: 6},function () {
-              // 获得frame索引
-              var index = parent.layer.getFrameIndex(window.name);
-              //关闭当前frame
-              parent.layer.close(index);
-          });
-          return false;
+        form.on('submit(change)', function(data){
+            //发异步，把数据提交给controller
+            $.post({
+                url: '/movie/pre/user/change',
+                dataType: 'json',
+                data: {
+                    id:data.field.id,
+                    phone:data.field.phone,
+                    email:data.field.email,
+                    pwd:data.field.pwd
+                },
+                success: function (data) {
+                    if(data.code==0){
+                        if(data.data>0){
+                            layer.alert("更新会员成功",function () {
+                                var index = parent.layer.getFrameIndex(window.name);
+                                parent.layer.close(index);
+                            });
+                        }
+                    }else {
+                        layer.msg(data.errMsg+"...");
+                    }
+                }
+            });
+            return false;
         });
-        
-        
-      });
-  </script>
-  </body>
+
+
+    });
+</script>
+<script>
+    $("#L_createDate").focus(function () {
+        $(this).blur();
+    });
+    $("#L_UserName").focus(function () {
+        $(this).blur();
+    });
+</script>
+</body>
 
 </html>

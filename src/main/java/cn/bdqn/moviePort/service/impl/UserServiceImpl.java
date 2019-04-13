@@ -46,4 +46,14 @@ public class UserServiceImpl implements IUserService {
     public int getCount() {
         return userMapper.selectCount();
     }
+
+    @Override
+    public int delUserWithId(int id) {
+        return userMapper.deleteUserById(id);
+    }
+
+    @Override
+    public int changeUserWithObject(User user) {
+        return userMapper.updateUserWithObject(user);
+    }
 }

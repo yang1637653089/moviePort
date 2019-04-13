@@ -126,7 +126,6 @@
         //监听提交
         form.on('submit(add)', function(data){
             var param=data.field;
-            console.log(data.field);
             $.post({
                 url: '/movie/pre/user/register',
                 dataType: 'json',
@@ -139,7 +138,7 @@
                     verifyCode:param.verifyCode
                 },
                 success: function (data) {
-                    if(data.result===0){
+                    if(data.code==0){
                         layer.msg("添加会员成功...");
                     }else {
                         layer.msg(data.errMsg+"...");
@@ -207,6 +206,7 @@
             dataType: 'json',
             data: 'tel='+$("#L_Phone").val(),
             success: function (data) {
+                //特殊对面，结果集封装为result
                 if(data.result===0){
                     buttonController();
                 }else {

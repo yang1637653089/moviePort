@@ -72,18 +72,37 @@ public class UserController {
                 session.removeAttribute("tel");
                 session.removeAttribute("verifyCode");
                 //判断执行结果
-                if(row==1)result=Result.error(CodeMsg.SUCCESS);
+                if(row==1)result=Result.success(row);
                 else result=Result.error(CodeMsg.REGISTER_ERROR);
             }else result=Result.error(CodeMsg.TEL_ERROR);
         }
         return JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd",
                 SerializerFeature.WriteNullStringAsEmpty,SerializerFeature.WriteMapNullValue);
     }
-    @GetMapping("/userList")
+    @GetMapping("/list")
     @ResponseBody
-    public String userList(int page,int limit){
+    public String list(int page,int limit){
         PageInfo<User> users = userService.getAllUser(page, limit);
         Result result=Result.success(users);
+        return JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd",
+                SerializerFeature.WriteNullStringAsEmpty,SerializerFeature.WriteMapNullValue);
+    }
+    @PostMapping("/del")
+    @ResponseBody
+    public String userList(Integer id){
+        Result result=Result.error(CodeMsg.MISSING_PARAMETERS);
+        if(id!=null){
+            int row=userService.delUserWithId(id);
+            result=Result.success(row);
+        }
+        return JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd",
+                SerializerFeature.WriteNullStringAsEmpty,SerializerFeature.WriteMapNullValue);
+    }
+    @PostMapping("/change")
+    @ResponseBody
+    public String change(User user){
+        int row=userService.changeUserWithObject(user);
+        Result result=Result.success(row);
         return JSON.toJSONStringWithDateFormat(result,"yyyy-MM-dd",
                 SerializerFeature.WriteNullStringAsEmpty,SerializerFeature.WriteMapNullValue);
     }

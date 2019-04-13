@@ -362,18 +362,6 @@ function getCateId(cateId) {
     h       弹出层高度（缺省调默认值）
 */
 function x_admin_show(title,url,w,h){
-    if (title == null || title == '') {
-        title=false;
-    };
-    if (url == null || url == '') {
-        url="404.html";
-    };
-    if (w == null || w == '') {
-        w=($(window).width()*0.9);
-    };
-    if (h == null || h == '') {
-        h=($(window).height() - 50);
-    };
     layer.open({
         type: 2,
         area: [w+'px', h +'px'],
